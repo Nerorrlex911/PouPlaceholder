@@ -1,0 +1,11 @@
+name: "TestPlugin"
+entrypoint: "com.github.zimablue.devoutplugin.DevoutPlugin"
+
+version: "1.0.0"
+
+externalDependencies:
+  repositories:
+    - name: "testrepo"
+      url: "https://testrepo.com"
+  artifacts:
+    - "testartifact"
