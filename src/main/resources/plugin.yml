@@ -1,0 +1,6 @@
+name: "DevoutPlugin"
+entrypoint: "com.github.zimablue.devoutplugin.DevoutPlugin"
+# the package for annotations scan
+package: "com.github.zimablue.devoutplugin"
+
+version: "1.0.0"
