@@ -1,6 +1,6 @@
-name: "DevoutPlugin"
-entrypoint: "com.github.zimablue.devoutplugin.DevoutPlugin"
+name: "PouPlaceholder"
+entrypoint: "com.github.zimablue.pouplaceholder.PouPlaceholder"
 # the package for annotations scan
-package: "com.github.zimablue.devoutplugin"
+package: "com.github.zimablue.pouplaceholder"
 
-version: "1.0.0"
+version: "1.0-SNAPSHOT"
