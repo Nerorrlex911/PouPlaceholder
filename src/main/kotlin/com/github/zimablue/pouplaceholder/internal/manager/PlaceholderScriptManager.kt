@@ -8,12 +8,18 @@ import com.github.zimablue.pouplaceholder.PouPlaceholder
 import java.io.File
 
 object PlaceholderScriptManager {
-    val pluginScriptManager = PluginScriptManager(PouPlaceholder, File(PouPlaceholder.dataDirectory.toFile(),"scripts"))
+    val pluginScriptManager = PluginScriptManager(
+        plugin = PouPlaceholder,
+        path = PouPlaceholder.dataDirectory.resolve("scripts").toFile()
+    ) {
+        eval("""
+            const PlaceholderTool = Packages.com.github.zimablue.pouplaceholder.internal.script.PlaceholderTool;
+        """.trimIndent())
+    }
 
     @Awake(PluginLifeCycle.LOAD,AwakePriority.NORMAL)
     fun onLoad() {
-        pluginScriptManager.scriptEngine.eval("""
-            const PlaceholderTool = Packages.com.github.zimablue.pouplaceholder.internal.script.PlaceholderTool
-        """.trimIndent())
+
+        PouPlaceholder.savePackagedResource("scripts/testplaceholder.js")
     }
 }

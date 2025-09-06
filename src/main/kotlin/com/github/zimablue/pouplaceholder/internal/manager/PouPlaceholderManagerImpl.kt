@@ -1,5 +1,6 @@
 package com.github.zimablue.pouplaceholder.internal.manager
 
+import com.github.zimablue.devoutserver.util.colored
 import com.github.zimablue.pouplaceholder.PouPlaceholder
 import com.github.zimablue.pouplaceholder.api.manager.PouPlaceholderManager
 import com.github.zimablue.pouplaceholder.api.placeholder.PouPlaceHolder
@@ -20,7 +21,7 @@ internal object PouPlaceholderManagerImpl : PouPlaceholderManager() {
         )
     )
 
-    override fun replace(entity: LivingEntity, text: String): String {
+    override fun replace(entity: LivingEntity, text: String, def: String): String {
         var new = text
         val matcher = pattern.matcher(new)
         if (matcher.find()) {
@@ -40,13 +41,13 @@ internal object PouPlaceholderManagerImpl : PouPlaceholderManager() {
         return new
     }
 
-    override fun replace(uuid: UUID, text: String): String {
-        return replace(uuid.livingEntity()?:return text, text)
+    override fun replace(uuid: UUID, text: String, def: String): String {
+        return replace(uuid.livingEntity()?:return text, text, def)
     }
 
     override fun put(key: String, value: PouPlaceHolder): PouPlaceHolder? {
         PouPlaceholder.logger.info(
-            "&d[&9PouPlaceholder&d] &ePouPlaceholder &6{} &ehas successfully registered! From: &d{} &9{} &eBy: &a{}",
+            "&d[&9PouPlaceholder&d] &ePouPlaceholder &6{} &ehas successfully registered! From: &d{} &9{} &eBy: &a{}".colored(),
             key,
             value.name,
             value.version,

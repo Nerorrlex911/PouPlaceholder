@@ -7,7 +7,11 @@ import java.util.UUID
 
 
 fun UUID.livingEntity() : LivingEntity? {
-    // Use EntityFinder to find entities with the given UUID
-    val entities = EntityFinder().setConstantUuid(this).find(MinecraftServer.getCommandManager().consoleSender)
-    return entities.firstOrNull { it is LivingEntity } as? LivingEntity
+    MinecraftServer.getInstanceManager().instances.forEach { instance ->
+        val entity = instance.getEntityByUuid(this)?:return@forEach
+        if (entity is LivingEntity) {
+            return entity
+        }
+    }
+    return null
 }

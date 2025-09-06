@@ -25,7 +25,7 @@ abstract class PouPlaceholderManager : KeyMap<String, PouPlaceHolder>() {
      * @param text 待处理的文本
      * @return 处理后的文本
      */
-    abstract fun replace(uuid: UUID, text: String): String
+    abstract fun replace(uuid: UUID, text: String, def: String): String
 
     /**
      * 替换占位符
@@ -34,5 +34,5 @@ abstract class PouPlaceholderManager : KeyMap<String, PouPlaceHolder>() {
      * @param text
      * @return
      */
-    abstract fun replace(entity: LivingEntity, text: String): String
+    abstract fun replace(entity: LivingEntity, text: String, def: String): String
 }

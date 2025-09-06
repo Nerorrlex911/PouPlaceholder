@@ -1,6 +1,6 @@
 name: "PouPlaceholder"
 entrypoint: "com.github.zimablue.pouplaceholder.PouPlaceholder"
 # the package for annotations scan
-package: "com.github.zimablue.pouplaceholder"
+packageName: "com.github.zimablue.pouplaceholder"
 
 version: "1.0-SNAPSHOT"

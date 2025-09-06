@@ -45,7 +45,7 @@ object PlaceholderCommand : Command("pouplaceholder","pouph") {
                     }
                     val uuid = commandSender.uuid
                     val text = commandContext.get(textArg)
-                    val parsed = PouPlaceholder.placeholderManager.replace(uuid, text)
+                    val parsed = PouPlaceholder.placeholderManager.replace(commandSender, text)
                     commandSender.sendMessage("Parsed text for your UUID $uuid: $parsed")
                 }, textArg)
             }

@@ -1,6 +1,9 @@
 package com.github.zimablue.pouplaceholder
 
 import com.github.zimablue.devoutserver.plugin.Plugin
+import com.github.zimablue.devoutserver.plugin.lifecycle.Awake
+import com.github.zimablue.devoutserver.plugin.lifecycle.AwakePriority
+import com.github.zimablue.devoutserver.plugin.lifecycle.PluginLifeCycle
 import com.github.zimablue.pouplaceholder.api.manager.PouPlaceholderManager
 import com.github.zimablue.pouplaceholder.internal.command.PlaceholderCommand
 import com.github.zimablue.pouplaceholder.internal.manager.PouPlaceholderManagerImpl
@@ -14,6 +17,10 @@ object PouPlaceholder : Plugin() {
         super.onEnable()
         logger.info("PouPlaceholder enabled")
         MinecraftServer.getCommandManager().register(PlaceholderCommand)
+    }
+    @Awake(PluginLifeCycle.ENABLE,AwakePriority.NORMAL)
+    fun test() {
+        logger.info("PouPlaceholder test enable")
     }
 
 }
